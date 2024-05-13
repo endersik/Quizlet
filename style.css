@@ -2,15 +2,112 @@ body {
     background-image: url("https://codeopinion.com/wp-content/uploads/2018/07/Bitmap-MEDIUM_ASP.NET-Core-Logo_2colors_Square_RGB.png");
     background-color: blueviolet;
     display: flex;
-    align-items:center;
     justify-content: center;
+    align-items: center;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.submit {
+.container {
+    width: 800px;
+    height: 500px;
+    background-color: white;
+}
+
+.game {
+    /*display: none;*/
+}
+
+.content {
+    padding: 50px;
+}
+
+.question {
+    font-size: 40px;
+}
+
+.answer {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: dimgray;
+}
+
+.navigate {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.prev, .next {
+    background-color: aquamarine;
+    color: black;
+    border: none;
+    width: 50%;
+    cursor: pointer;
+}
+
+.prev {
+    display: flex;
+    margin-left: auto;
+}
+
+.next {
+    display: flex;
+    margin-right: auto;
+}
+
+
+.confirmation {
     display: none;
+    text-align: center;
+    padding: 100px;
+}
+
+.submit {
+    display: flex;
+    justify-content: space-between;
+}
+
+.back, .sub {
+    background-color: aquamarine;
+    color: black;
+    border: none;
+    width: 50%;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.back {
+    display: flex;
+    margin-left: auto;
+}
+
+.sub {
+    display: flex;
+    margin-right: auto;
 }
 
 .result {
     display: none;
+    padding: 50px;
+    text-align: center;
+}
+
+#status {
+    font-size: 50px;
+}
+
+.correct {
+    color: green;
+}
+
+.wrong {
+    color: red;
+}
+
+.restart {
+    color: bisque;
+    background-color: blueviolet;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
 }
