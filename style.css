@@ -2,6 +2,7 @@ body {
     background-image: url("https://codeopinion.com/wp-content/uploads/2018/07/Bitmap-MEDIUM_ASP.NET-Core-Logo_2colors_Square_RGB.png");
     background-color: blueviolet;
     display: flex;
+    height: 100vh;
     justify-content: center;
     align-items: center;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -14,7 +15,7 @@ body {
 }
 
 .game {
-    /*display: none;*/
+    display: none;
 }
 
 .content {
@@ -87,7 +88,7 @@ body {
 }
 
 .result {
-    display: none;
+    /*display: none;*/
     padding: 50px;
     text-align: center;
 }
