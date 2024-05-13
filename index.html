@@ -8,9 +8,48 @@
 </head>
 <body>
     <div class="container">
-        <div class="game"></div>
-        <div class="submit"></div>
-        <div class="result"></div>
+        <div class="game">
+            <div class="content">
+                <h1 class="question">Question</h1>
+                <div class="answers">
+                    <div class="answer">
+                        <input type="radio" id="answer1" value="false">
+                        <label for="answer1">Answer1</label>
+                    </div>
+                    <div class="answer">
+                        <input type="radio" id="answer2" value="false">
+                        <label for="answer2">Answer2</label>
+                    </div>
+                    <div class="answer">
+                        <input type="radio" id="answer3" value="false">
+                        <label for="answer3">Answer3</label>
+                    </div>
+                    <div class="answer">
+                        <input type="radio" id="answer4" value="false">
+                        <label for="answer4">Answer4</label>
+                    </div>
+                </div>
+            </div>
+            <div class="navigate">
+                <button class="prev">Prev</button>
+                <button class="next">Next</button>
+            </div>
+        </div>
+        <div class="submit">
+            <h1>Confirmation</h1>
+            <p>Are you sure you want to submit your answers?</p>
+            <div class="submit">
+                <button class="prev">Prev</button>
+                <button class="submit">Submit</button>
+            </div>
+        </div>
+        <div class="result">
+            <h1 id="status">Congratulations</h1>
+            <h3 class="correct">Correct Answers: 0</h3>
+            <h3 class="wrong">Wrong Answers: 0</h3>
+            <h2 class="score">Score: 0</h2>
+            <button class="restart">Play Again</button>
+        </div>
     </div>
     <script src="./script.js"></script>
 </body>

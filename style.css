@@ -2,7 +2,15 @@ body {
     background-image: url("https://codeopinion.com/wp-content/uploads/2018/07/Bitmap-MEDIUM_ASP.NET-Core-Logo_2colors_Square_RGB.png");
     background-color: blueviolet;
     display: flex;
-    align-items: center;
+    align-items:center;
     justify-content: center;
-    font-family: 'Times New Roman', Times, serif;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.submit {
+    display: none;
+}
+
+.result {
+    display: none;
 }
