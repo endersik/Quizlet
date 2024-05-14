@@ -50,4 +50,12 @@ const data = [
       ],
     },
   ];
+
+  const gameScreen = document.querySelector(".game")
+  const submitScreen = document.querySelector(".confirmation")
+  const resultScreen = document.querySelector(".result")
+  const question = document.querySelector(".question")
+  const answerContainer = document.querySelector(".answers")
+  const submit = document.querySelector(".sub")
+  const restart = document.querySelector(".restart")
   
