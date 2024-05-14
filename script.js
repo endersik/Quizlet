@@ -11,7 +11,7 @@ const data = [
     },
     {
       id: 2,
-      question: "Wwhich of the following is an entry point of ASP.NET Core application?",
+      question: "Which of the following is an entry point of ASP.NET Core application?",
       answers: [
         { answer: "Main method of Program class", isCorrect: true },
         { answer: "Configure method of Startup class", isCorrect: false },
@@ -26,7 +26,7 @@ const data = [
         { answer: "core", isCorrect: false },
         { answer: "dotnet", isCorrect: true },
         { answer: ".net", isCorrect: false },
-        { answer: "aspdotnet)", isCorrect: false },
+        { answer: "aspdotnet", isCorrect: false },
       ],
     },
     {
@@ -58,7 +58,7 @@ const data = [
   const answerContainer = document.querySelector(".answers")
   const prev = document.querySelector(".prev")
   const next = document.querySelector(".next")
-  const backToTest = document.querySelector(".back")
+  const back = document.querySelector(".back")
   const submit = document.querySelector(".sub")
   const restart = document.querySelector(".restart")
   
@@ -68,16 +68,83 @@ const data = [
   let total = 0;
   let selectedAnswer;
 
+  const showConfirmation = () => {
+    submitScreen.style.display = "block"
+    gameScreen.style.display = "none"
+  }
+
+  const showResult = () => {
+    resultScreen.style.display = "block"
+    submitScreen.style.display = "none"
+  }
+
+  const showGame = () => {
+    gameScreen.style.display = "block"
+    submitScreen.style.display = "none"
+  }
+
+
   const showQuestion = (qNumber) => {
-    question.textContent = data[qNumber].question
+    if(qIndex === data.length) return showConfirmation()
+    selectedAnswer = null // Prevent user from navigating to next question without selecting an answer
+    question.textContent = data[qNumber].id + " - " + data[qNumber].question
     answerContainer.innerHTML = data[qNumber].answers.map((item, index) =>
     `
     <div class="answer">
         <input name="answer" type="radio" id=${index} value=${item.isCorrect} >
-        <label>${item.answer}</label>
+        <label for=${index} >${item.answer}</label>
     </div>
     `
     ).join(""); // Removes commas between answers
+
+    selectAnswer()
   };
 
+  const selectAnswer = () => {
+    answerContainer.querySelectorAll("input").forEach(el => {
+      el.addEventListener("click", (e) => {
+        selectedAnswer = e.target.value
+      })
+    }
+    )
+  }
+
+  const prevQuestion = () => {
+    prev.addEventListener("click", () => {
+      if(qIndex > 0){
+        qIndex--;
+        showQuestion(qIndex)
+      }
+    })
+  }
+
+  const nextQuestion = () => {
+    next.addEventListener("click", () => {
+      if(selectedAnswer !== null){
+        if(qIndex < data.length) {
+        qIndex++;
+        showQuestion(qIndex)
+        }
+      } else alert("Select an answer!");
+    })
+  }
+
+  const backToTest = () => {
+    back.addEventListener("click", () => {
+      showGame()
+      qIndex--;
+      showQuestion(qIndex)
+    })
+  }
+
+  const submitAnswers = () => {
+    submit.addEventListener("click", () => {
+      showResult()
+    })
+  } 
+
   showQuestion(qIndex)
+  nextQuestion()
+  prevQuestion()
+  backToTest()
+  submitAnswers()
