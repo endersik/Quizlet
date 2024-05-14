@@ -1,7 +1,7 @@
 const data = [
     {
       id: 1,
-      question: "ASP.NET Core applications can target which of the following",
+      question: "ASP.NET Core applications can target which of the following?",
       answers: [
         { answer: ".NET Core", isCorrect: false },
         { answer: ".NET Framework 4.x", isCorrect: false },
@@ -56,6 +56,28 @@ const data = [
   const resultScreen = document.querySelector(".result")
   const question = document.querySelector(".question")
   const answerContainer = document.querySelector(".answers")
+  const prev = document.querySelector(".prev")
+  const next = document.querySelector(".next")
+  const backToTest = document.querySelector(".back")
   const submit = document.querySelector(".sub")
   const restart = document.querySelector(".restart")
   
+  let qIndex = 0;
+  let correctCount = 0;
+  let wrongCount = 0;
+  let total = 0;
+  let selectedAnswer;
+
+  const showQuestion = (qNumber) => {
+    question.textContent = data[qNumber].question
+    answerContainer.innerHTML = data[qNumber].answers.map((item, index) =>
+    `
+    <div class="answer">
+        <input name="answer" type="radio" id=${index} value=${item.isCorrect} >
+        <label>${item.answer}</label>
+    </div>
+    `
+    ).join(""); // Removes commas between answers
+  };
+
+  showQuestion(qIndex)

@@ -16,7 +16,7 @@ body {
 }
 
 .game {
-    display: none;
+    /* display: none; */
 }
 
 .content {
@@ -79,7 +79,7 @@ body {
 }
 
 .result {
-    /* display: none; */
+    display: none;
     padding: 50px;
     text-align: center;
 }
