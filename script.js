@@ -67,6 +67,7 @@ const data = [
   let wrongCount = 0;
   let total = 0;
   let selectedAnswer;
+  const answerTable = [0, 0, 0, 0, 0];
 
   const showConfirmation = () => {
     submitScreen.style.display = "block"
@@ -76,6 +77,26 @@ const data = [
   const showResult = () => {
     resultScreen.style.display = "block"
     submitScreen.style.display = "none"
+
+    calculateResult()
+
+    resultScreen.querySelector(
+      ".correct"
+    ).textContent = `Correct Answers: ${correctCount}`;
+
+    resultScreen.querySelector(
+      ".wrong"
+    ).textContent = `Wrong Answers: ${wrongCount}`;
+
+    resultScreen.querySelector(
+      ".score"
+    ).textContent = `Score: ${(correctCount * 10) - (wrongCount * 3)}`;
+  }
+
+  const calculateResult = () => {
+    for(let i = 0; i < data.length; i++){
+      answerTable[i] === 1 ? correctCount++ : wrongCount++ ;
+    }
   }
 
   const showGame = () => {
@@ -113,6 +134,7 @@ const data = [
     prev.addEventListener("click", () => {
       if(qIndex > 0){
         qIndex--;
+        answerTable[qIndex] = 0;
         showQuestion(qIndex)
       }
     })
@@ -122,8 +144,9 @@ const data = [
     next.addEventListener("click", () => {
       if(selectedAnswer !== null){
         if(qIndex < data.length) {
-        qIndex++;
-        showQuestion(qIndex)
+          if(selectedAnswer === "true") answerTable[qIndex] = 1 ;
+          qIndex++;
+          showQuestion(qIndex)
         }
       } else alert("Select an answer!");
     })
@@ -132,8 +155,7 @@ const data = [
   const backToTest = () => {
     back.addEventListener("click", () => {
       showGame()
-      qIndex--;
-      showQuestion(qIndex)
+      prevQuestion()
     })
   }
 
