@@ -65,9 +65,22 @@ const data = [
   let qIndex = 0;
   let correctCount = 0;
   let wrongCount = 0;
-  let total = 0;
   let selectedAnswer;
   const answerTable = [0, 0, 0, 0, 0];
+
+  const playAgain = () => {
+    qIndex = 0;
+    correctCount = 0;
+    wrongCount = 0;
+    answerTable = [0, 0, 0, 0, 0];
+    showQuestion(qIndex);
+  };
+
+  restart.addEventListener("click", () => {
+    resultScreen.style.display = "none"
+    gameScreen.style.display = "block"
+    playAgain()
+  })
 
   const showConfirmation = () => {
     submitScreen.style.display = "block"
